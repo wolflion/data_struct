@@ -7,6 +7,7 @@ int main()
 	testSeqStack();
 	testLinkStack();
 	testSeqQueue();
+    linkQueue();
  //  srand((unsigned)time(0)); // 以时间为种子产生随机数
 	///*SeqStack *stackobj = NULL;
 	//stackobj = (SeqStack*)malloc(sizeof(SeqStack));*/
