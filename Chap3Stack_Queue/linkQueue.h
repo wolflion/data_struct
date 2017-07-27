@@ -4,13 +4,13 @@
 typedef struct Node *pNode;
 typedef struct Queue *LQueue;  // 相当于定义头结点pHead
 
-struct Node
+struct Node  // 链式队列的节点结构
 {
 	int data;           // 数据域
 	pNode next;         // 指针域
 };
 
-struct Queue    // 头结点
+struct Queue    // 头结点  【链式队列】
 {
 	pNode front;  // 指向头结点，相当于链表中头结点里的next指针
 	pNode rear;   // 指向尾结点

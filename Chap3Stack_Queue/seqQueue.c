@@ -1,9 +1,9 @@
 #include "seqQueue.h"
 
-seqQueue Create()
+seqQueue Create() //typedef struct Queue* seqQueue;
 {
 	seqQueue sq = (seqQueue)malloc(sizeof(struct seqQueue));
-	sq->front = sq->rear-1;
+	sq->front = sq->rear-1; // 队头队尾指向-1
 	memset(sq->data,0,MAXSIZE*sizeof(int));
 	return sq;
 }
@@ -24,8 +24,8 @@ int IsEmpty(seqQueue sq)
 
 // 队满的标志
 
-// 数组前边是队头，后边是队尾
-void insert(seqQueue sq, int val)
+// 【入队：将一个新元素插入到队尾】数组前边是队头，后边是队尾
+void insert(seqQueue sq, int val) //typedef struct Queue* seqQueue;
 {
 	// 队列是否满
 	if (sq->rear == MAXSIZE - 1)
@@ -45,8 +45,20 @@ void insert(seqQueue sq, int val)
 		sq->data[sq->rear] = val; // 保存数据
 		sq->rear++;
 	}
+	
+	/*
+	if((sq->rear+1)%MAXSIZE == sq->front) 
+		//exit();
+		return;
+	else
+	{
+		sq->rear = (sq->rear+1)%MAXSIZE; // 这是取得一个新空间?
+		sq->data[sq->rear]=val;
+	}
+	*/
 }
 
+// 【出队：取出队头元素，并同时删除该元素，使后一个元素成为队头】
 int del(seqQueue sq)
 {
 	// 空队列
@@ -60,6 +72,29 @@ int del(seqQueue sq)
 	return temp;
 }
 
+// 判断队列是否为空
+int QueueEmpty(seqQueue sq)
+{
+	if(sq->front == sq->rear)
+		return 1;
+	else
+		return 0;
+}
+
+/*
+int delQueue(seqQueue sq,int *elem)
+{
+	if(QueueEmpty(sq))
+		return 0;
+	else
+	{
+		sq->front = (sq->front+1)%MAXSIZE;
+		*elem = sq->data[sq->front];
+	}
+}
+*/
+
+// 获取第1个元素
 int getHead(seqQueue sq)
 {
 	if(sq->front == sq->rear)
@@ -68,7 +103,8 @@ int getHead(seqQueue sq)
 		return 10000;
 	}
 	// 获取元素
-	return sq->data(sq->front);
+	return sq->data[sq->front];
+	// return sq->data[(s->front+1)%MAXSIZE]; //这个为什么要加1啊，又不用移动元素？
 }
 
 void clear(seqQueue sq)

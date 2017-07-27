@@ -13,6 +13,7 @@ struct Queue
 	int front;// 队头
 	int rear;// 队尾
 	int data[MAXSIZE];//数据
+	//int *basedata;  // 可以用这种方式
 };
 
 seqQueue Create();

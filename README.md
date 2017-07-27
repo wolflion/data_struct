@@ -3,6 +3,9 @@ data_struct
 
 learn data_struct
 
+##  目录
++ chap04串 （20170726-)
+
 ##   实践过程中的想法
 + 2017-03-14
 	+ 实践Chap3Stack_Sequence时，不想每个类都有个main，想一个章节一个mian，最后全书是一个main。
